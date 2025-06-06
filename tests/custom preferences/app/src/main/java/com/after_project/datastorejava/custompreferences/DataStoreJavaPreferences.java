@@ -1,5 +1,6 @@
 package com.after_project.datastorejava.custompreferences;
-
+// Copyright (c) Thiago Schnell | https://github.com/thiagoschnell/DataStoreJava/blob/main/LICENSE
+// Licensed under the MIT License.
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.datastore.preferences.core.Preferences;
