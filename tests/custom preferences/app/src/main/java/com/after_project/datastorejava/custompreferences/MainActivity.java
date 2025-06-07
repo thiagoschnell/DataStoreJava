@@ -46,10 +46,17 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("merge result=" + result.toPreferences().toString());
 
                 try {
+                    //create DataStore
                     DataStoreJava testDataStore = new DataStoreJava();
-                    testDataStore.datastore = new RxPreferenceDataStoreBuilder(MainActivity.this,"test").build();
-                    testDataStore.setData(result);
-                    System.out.println("testDataStore data=" + testDataStore.getData().toPreferences());
+                    testDataStore.datastore = new RxPreferenceDataStoreBuilder(MainActivity.this, "test").build();
+                    try {
+                        //set the result to DataStore
+                        testDataStore.setData(result);
+                        System.out.println("testDataStore data=" + testDataStore.getData().toPreferences());
+                    }finally {
+                        //terminate DataStore
+                        testDataStore.datastore.dispose();
+                    }
                 } catch (Exception e) {
                     System.out.println("setData error message=" + e.getMessage());
                     e.printStackTrace();
